@@ -9,11 +9,11 @@ RSpec.describe Wikitxt::Renderer do
     html = <<~HTML
       <div class="line">
       <div class="dot" style="margin-left: 0px;"></div>
-      <div class="list">foo</div>
+      <div class="list"><span>foo</span></div>
       </div>
       <div class="line">
       <div class="dot" style="margin-left: 10px;"></div>
-      <div class="list">bar</div>
+      <div class="list"><span>bar</span></div>
       </div>
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
@@ -26,36 +26,22 @@ bar
     TXT
     html = <<~HTML
       <div class="line">
-      <div class="text">foo</div>
+      <div class="text"><span>foo</span></div>
       </div>
       <div class="line">
-      <div class="text">bar</div>
+      <div class="text"><span>bar</span></div>
       </div>
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
   end
 
-  it "renders list and text" do
+  it "renders link" do
     text = <<-TXT
-foo
-bar
-  forge
-    relaxation
+foo #bar baz
     TXT
     html = <<~HTML
       <div class="line">
-      <div class="text">foo</div>
-      </div>
-      <div class="line">
-      <div class="text">bar</div>
-      </div>
-      <div class="line">
-      <div class="dot" style="margin-left: 0px;"></div>
-      <div class="list">forge</div>
-      </div>
-      <div class="line">
-      <div class="dot" style="margin-left: 10px;"></div>
-      <div class="list">relaxation</div>
+      <div class="text"><span>foo</span><a href="/bar.html">bar</a><span>baz</span></div>
       </div>
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)

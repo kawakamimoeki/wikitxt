@@ -4,6 +4,7 @@ require_relative "wikitxt/version"
 require_relative "wikitxt/node"
 require_relative "wikitxt/parser"
 require_relative "wikitxt/renderer"
+require_relative "wikitxt/cli"
 
 module Wikitxt
   class Error < StandardError; end

@@ -16,11 +16,11 @@ module Wikitxt
     end
   end
 
-  class TextNode < BaseNode
+  class ParagraphNode < BaseNode
     def to_html
       <<~HTML
         <div class="line">
-        <div class="text">#{attrs[:text]}</div>
+        <div class="text">#{Parser::Inline.new(self).to_html}</div>
         </div>
       HTML
     end
@@ -31,9 +31,21 @@ module Wikitxt
       <<~HTML
         <div class="line">
         <div class="dot" style="margin-left: #{attrs[:indent] * 5}px;"></div>
-        <div class="list">#{attrs[:text]}</div>
+        <div class="list">#{Parser::Inline.new(self).to_html}</div>
         </div>
       HTML
+    end
+  end
+
+  class TextNode < BaseNode
+    def to_html
+      "<span>#{attrs[:text]}</span>"
+    end
+  end
+
+  class LinkNode < BaseNode
+    def to_html
+      "<a href=\"/#{attrs[:page]}.html\">#{attrs[:page]}</a>"
     end
   end
 end

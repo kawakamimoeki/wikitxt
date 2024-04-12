@@ -6,7 +6,7 @@ module Wikitxt
 
     def initialize(text)
       @text = text
-      @parser = Parser.new(text)
+      @parser = Parser::Block.new(text)
     end
 
     def render
