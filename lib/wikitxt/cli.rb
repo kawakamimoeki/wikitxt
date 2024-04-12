@@ -12,11 +12,12 @@ module Wikitxt
       files.each do |file|
         text = File.read(file)
         html = Wikitxt.to_html(text)
-        File.open(File.join("tmp", "#{File.basename(file, ".txt")}.html"), "w+") do |f|
+        Dir.mkdir("dist") unless Dir.exist?("dist")
+        File.open(File.join("dist", "#{File.basename(file, ".txt")}.html"), "w+") do |f|
           f.write(html)
         end
       end
-      server = WEBrick::HTTPServer.new :Port => 8000, :DocumentRoot => "tmp"
+      server = WEBrick::HTTPServer.new :Port => 8000, :DocumentRoot => "dist"
       trap 'INT' do server.shutdown end
       server.start
     end
