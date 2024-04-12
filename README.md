@@ -1,6 +1,6 @@
 # Wikitxt
 
-Most lightweight wiki writen by plain text.
+Most lightweight wiki written by plain text.
 
 ## Installation
 
