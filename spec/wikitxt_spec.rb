@@ -5,7 +5,29 @@ RSpec.describe Wikitxt do
     expect(Wikitxt::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "renders list and text" do
+    text = <<-TXT
+foo
+bar
+  forge
+    relaxation
+    TXT
+    html = <<~HTML
+      <div class="line">
+      <div class="text">foo</div>
+      </div>
+      <div class="line">
+      <div class="text">bar</div>
+      </div>
+      <div class="line">
+      <div class="dot" style="margin-left: 0px;"></div>
+      <div class="list">forge</div>
+      </div>
+      <div class="line">
+      <div class="dot" style="margin-left: 10px;"></div>
+      <div class="list">relaxation</div>
+      </div>
+    HTML
+    expect(Wikitxt.to_html(text)).to eq(html)
   end
 end
