@@ -8,6 +8,23 @@ Most lightweight markup language and personal knowledge manager or wiki platform
 
 ![screenshot](https://github.com/kawakamimoeki/wikitxt/blob/main/docs/screenshot.png)
 
+Wikitxt is a lightweight markup language and a tool for composing Wiki . The syntax of #Wikitxt can be converted to HTML and viewed in a browser. When converted to HTML, files can be interlinked.
+
+Wikitxt is based on the format of lists and paragraphs. Most information can be expressed in list format, and the choice between lists and paragraphs is always changing as you write.
+
+Text decoration is limited to mutual links using hashtags. By utilizing the decoration of mutual links, you can intentionally increase the number of pages in the wiki.
+
+In summary, it's like this:
+
+- Lists
+  - Based on the idea that most information can be expressed in lists
+- Paragraphs
+  - Paragraphs always have the potential to be listed. They can easily be converted to lists.
+  - Paragraphs can also serve as headings.
+- Mutual Links
+  - Text decoration is limited to links.
+  - Words you want to emphasize should be expressed as wiki pages.
+
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
