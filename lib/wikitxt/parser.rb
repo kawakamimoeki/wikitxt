@@ -37,16 +37,11 @@ module Wikitxt
 
         scanner = StringScanner.new(parent.attrs[:text])
 
-        if match = parent.attrs[:text].match(/^#(?<page>.+)$/)
-          parent.children << LinkNode.new(page: match[:page])
-          return parent.children.map(&:to_html).join
-        end
-
         until scanner.eos? do
-          if result = scanner.scan(/ #.+ /)
-            parent.children << pending
+          if result = scanner.scan(/(^| )#\S+( |$)/)
+            parent.children << pending if pending
             pending = nil
-            match = result.match(/ #(?<page>.+) /)
+            match = result.match(/(^| )#(?<page>\S+)( |$)/)
             parent.children << LinkNode.new(page: match[:page])
             next
           end

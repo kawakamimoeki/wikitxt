@@ -1,3 +1,1 @@
-Link to #sample .
-
-これはテストです。
+Link to #Wikitxt .

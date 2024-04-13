@@ -1,6 +1,12 @@
-# Wikitxt
+# Wiki.txt
+
+![v](https://badgen.net/rubygems/v/wikitxt)
+![dt](https://badgen.net/rubygems/dt/wikitxt)
+![license](https://badgen.net/github/license/kawakamimoeki/wikitxt)
 
 Most lightweight wiki written by plain text.
+
+![screenshot](https://github.com/kawakamimoeki/wikitxt/blob/75fb0e078a2f2a2b6d41787220fc550cbe879cc9/docs/screenshot.png)
 
 ## Installation
 
