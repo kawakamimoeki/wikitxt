@@ -38,11 +38,27 @@ module Wikitxt
         scanner = StringScanner.new(parent.attrs[:text])
 
         until scanner.eos? do
+          if result = scanner.scan(/ ?#<.+>/)
+            parent.children << pending if pending
+            pending = nil
+            match = result.match(/#<(?<title>.*) *(?<url>https?:\/\/.+\.\S+) *(?<title>.*)>/)
+            if match[:url].match(/\.(png|jpg|jpeg|svg)/)
+              parent.children << ImageNode.new(url: match[:url], title: match[:title])
+              next
+            end
+            parent.children << LinkNode.new(url: match[:url], title: match[:title])
+            next
+          end
+
           if result = scanner.scan(/(^| )#\S+( |$)/)
             parent.children << pending if pending
             pending = nil
-            match = result.match(/(^| )#(?<page>\S+)( |$)/)
-            parent.children << LinkNode.new(page: match[:page])
+            match = result.match(/(^| )#(?<url>\S+)( |$)/)
+            if match[:url].match(/\.(png|jpg|jpeg|svg)/)
+              parent.children << ImageNode.new(url: "/#{match[:url]}")
+              next
+            end
+            parent.children << LinkNode.new(url: "/#{match[:url]}.html", title: match[:url])
             next
           end
 

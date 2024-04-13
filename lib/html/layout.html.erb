@@ -35,11 +35,15 @@
     background: #333;
     border-radius: 100%;
   }
+
+  img {
+    max-width: 100%;
+  }
 </style>
 
 <body>
   <div class="content">
-    <div class="title"><%= title %></div>
+    <div class="title"><%= title.capitalize %></div>
     <%= body %>
   </div>
 </body>

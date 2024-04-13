@@ -1,6 +1,7 @@
 require "thor"
 require 'webrick'
 require 'erb'
+require 'fileutils'
 
 module Wikitxt
   class CLI < Thor
@@ -18,6 +19,8 @@ module Wikitxt
         Dir.mkdir("dist") unless Dir.exist?("dist")
         File.write(File.join("dist", "#{title}.html"), html)
       end
+      images = Dir.glob(File.join(path, "*.{png,jpg,jpeg}"))
+      FileUtils.cp(images, "dist")
       server = WEBrick::HTTPServer.new :Port => 8000, :DocumentRoot => "dist"
       trap 'INT' do server.shutdown end
       server.start

@@ -6,7 +6,7 @@
 
 Most lightweight wiki written by plain text.
 
-![screenshot](https://github.com/kawakamimoeki/wikitxt/blob/75fb0e078a2f2a2b6d41787220fc550cbe879cc9/docs/screenshot.png)
+![screenshot](https://github.com/kawakamimoeki/wikitxt/blob/main/docs/screenshot.png)
 
 ## Installation
 

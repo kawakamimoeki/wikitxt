@@ -45,7 +45,13 @@ module Wikitxt
 
   class LinkNode < BaseNode
     def to_html
-      " <a href=\"/#{attrs[:page]}.html\">#{attrs[:page]}</a> "
+      " <a href=\"#{attrs[:url]}\">#{attrs[:title]}</a> "
+    end
+  end
+
+  class ImageNode < BaseNode
+    def to_html
+      "<img src=\"#{attrs[:url]}\" title=\"#{attrs[:title]}\" />"
     end
   end
 end

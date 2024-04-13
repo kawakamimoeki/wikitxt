@@ -35,13 +35,49 @@ bar
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
   end
 
-  it "renders link" do
+  it "renders internal link" do
     text = <<-TXT
 foo #bar baz
     TXT
     html = <<~HTML
       <div class="line">
       <div class="text"><span>foo</span> <a href="/bar.html">bar</a> <span>baz</span></div>
+      </div>
+    HTML
+    expect(Wikitxt::Renderer.new(text).render).to eq(html)
+  end
+
+  it "renders internal image" do
+    text = <<-TXT
+#image.png
+    TXT
+    html = <<~HTML
+      <div class="line">
+      <div class="text"><img src="/image.png" title="" /></div>
+      </div>
+    HTML
+    expect(Wikitxt::Renderer.new(text).render).to eq(html)
+  end
+
+  it "renders external link" do
+    text = <<-TXT
+External Link: #<https://example.com Example Domain>
+    TXT
+    html = <<~HTML
+      <div class="line">
+      <div class="text"><span>External Link:</span> <a href="https://example.com">Example Domain</a> </div>
+      </div>
+    HTML
+    expect(Wikitxt::Renderer.new(text).render).to eq(html)
+  end
+
+  it "renders external image" do
+    text = <<-TXT
+External Image: #<https://example.com/image.png Image>
+    TXT
+    html = <<~HTML
+      <div class="line">
+      <div class="text"><span>External Image:</span><img src="https://example.com/image.png" title="Image" /></div>
       </div>
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
