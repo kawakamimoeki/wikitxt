@@ -94,4 +94,17 @@ This is <pre> pre </pre> tag.
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
   end
+
+  it "renders pre block" do
+    text = <<-TXT
+---
+class Hoge; end
+---
+    TXT
+    html = <<~HTML
+      <pre>class Hoge; end
+      </pre>
+    HTML
+    expect(Wikitxt::Renderer.new(text).render).to eq(html)
+  end
 end

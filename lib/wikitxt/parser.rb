@@ -11,8 +11,21 @@ module Wikitxt
 
       def body
         b = BodyNode.new
+        in_pre = false
 
         text.lines.each do |line|
+          if line == "---\n"
+            node = !in_pre ? PreStartNode.new : PreEndNode.new
+            b.children << node
+            in_pre = !in_pre
+            next
+          end
+
+          if in_pre
+            b.children << PreNode.new(text: line)
+            next
+          end
+
           if match = line.match(/^(?<indent> {2,})(?<text>.*)$/)
             b.children << ListNode.new(text: match[:text], indent: match[:indent].length - 2)
             next

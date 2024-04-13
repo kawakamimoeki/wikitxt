@@ -54,4 +54,32 @@ module Wikitxt
       "<img src=\"#{attrs[:url]}\" title=\"#{attrs[:title]}\" />"
     end
   end
+
+  class CodeNode < BaseNode
+    def to_html
+      <<~HTML
+        <div class="line">
+        <code><pre>#{CGI.escapeHTML(attrs[:text])}</pre></code>
+        </div>
+      HTML
+    end
+  end
+
+  class PreStartNode < BaseNode
+    def to_html
+      "<pre>"
+    end
+  end
+
+  class PreEndNode < BaseNode
+    def to_html
+      "</pre>\n"
+    end
+  end
+
+  class PreNode < BaseNode
+    def to_html
+      CGI.escapeHTML(attrs[:text])
+    end
+  end
 end

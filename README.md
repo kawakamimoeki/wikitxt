@@ -80,6 +80,18 @@ External Images:
 #<https://example.com/image.png Example Image>
 ```
 
+Pre Blocks:
+
+```
+---
+class Foo
+  def bar
+    p "bar"
+  end
+end
+---
+```
+
 ## Usage
 
 ### Render HTML
