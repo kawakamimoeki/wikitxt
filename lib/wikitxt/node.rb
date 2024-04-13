@@ -39,13 +39,13 @@ module Wikitxt
 
   class TextNode < BaseNode
     def to_html
-      "<span>#{attrs[:text]}</span>"
+      "<span>#{CGI.escapeHTML(attrs[:text])}</span>"
     end
   end
 
   class LinkNode < BaseNode
     def to_html
-      " <a href=\"#{attrs[:url]}\">#{attrs[:title]}</a> "
+      " <a href=\"#{attrs[:url]}\">#{CGI.escapeHTML(attrs[:title])}</a> "
     end
   end
 

@@ -18,3 +18,36 @@ In summary, it's like this:
 Absolute url is parsed as external link: #<https://example.com Example Domain>
 
 #woman.jpg
+
+  やってること
+    パラグラフ
+    リスト
+    リンク
+    画像
+  やってないこと
+    #装飾文字
+      これはいらない気もする
+    #コードブロック
+    #引用
+    #自動リンク
+      コードスパンがないのでURLを生で書きたい時に困る
+  コードブロックというかpreはは必要なのか
+    というか #コードブロック の記法を作るくらいならpreタグを使うのとさほど変わらないのでは
+
+<code>
+  class Hoge
+    def initialize(fuga)
+      @fuga = fuga
+   end
+  end
+</code>
+
+↑preタグの中にもリストができてしまったので修正必要そう。
+
+インラインは良さそう: <pre>これはpreタグの中身です</pre>
+
+と思ったがpreタグは改行されるのか
+
+<blockquote>
+ホゲホゲ
+</blockquote>
