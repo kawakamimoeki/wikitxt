@@ -42,7 +42,7 @@ Cras at tortor urna. Maecenas nec iaculis nulla.
 ```
 
 ```
-wikitxt s
+$ wikitxt s
 ```
 
 Access to http://localhost:8000 .
