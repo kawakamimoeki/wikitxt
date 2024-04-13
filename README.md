@@ -14,6 +14,14 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
+### Render HTML
+
+```ruby
+Wikitxt.to_html(text)
+```
+
+### Server
+
 `wiki/index.txt`:
 
 ```
