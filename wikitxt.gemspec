@@ -27,6 +27,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "thor", "~> 1.3"
-  spec.add_dependency "webrick", "~> 1.8"
+  spec.add_dependency "sinatra", "~> 4.0"
+  spec.add_dependency "rerun", "~> 0.14"
+  spec.add_dependency "rackup", "~> 2.1"
 
 end

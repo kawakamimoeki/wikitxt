@@ -90,12 +90,6 @@ Wikitxt.to_html(text)
 
 ### Server
 
-`wiki/index.txt`:
-
-```
-Link to #sample .
-```
-
 `wiki/sample.txt`:
 
 ```
@@ -118,10 +112,16 @@ Cras at tortor urna. Maecenas nec iaculis nulla.
 ```
 
 ```
-$ wikitxt s
+$ wikitxt s wiki
 ```
 
-Access to http://localhost:8000 .
+Access to http://localhost:4567 .
+
+### Build
+
+```
+$ wikitxt build wiki
+```
 
 ## Development
 
