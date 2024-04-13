@@ -18,6 +18,51 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
     $ gem install wikitxt
 
+## Syntax
+
+Paragraphs:
+
+```
+Wikitxt is a lightweight markup language and a tool for composing Wiki . The syntax of Wikitxt can be converted to HTML and viewed in a browser. When converted to HTML, files can be interlinked.
+```
+
+Lists:
+
+```
+  Lists
+    Based on the idea that most information can be expressed in lists
+  Paragraphs
+    Paragraphs always have the potential to be listed. They can easily be converted to lists.
+    Paragraphs can also serve as headings.
+  Mutual Links
+    Text decoration is limited to links.
+    Words you want to emphasize should be expressed as wiki pages.
+```
+
+Internal Links:
+
+```
+#internallink
+```
+
+Internal Images:
+
+```
+#internalimage.png
+```
+
+External Links:
+
+```
+#<https://example.com Example Domain>
+```
+
+External Images:
+
+```
+#<https://example.com/image.png Example Image>
+```
+
 ## Usage
 
 ### Render HTML
