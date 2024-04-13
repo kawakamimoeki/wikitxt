@@ -1,5 +1,6 @@
 require "thor"
 require 'webrick'
+require 'erb'
 
 module Wikitxt
   class CLI < Thor
@@ -11,11 +12,11 @@ module Wikitxt
       files = Dir.glob(File.join(path, "*.txt"))
       files.each do |file|
         text = File.read(file)
-        html = Wikitxt.to_html(text)
+        body = Wikitxt.to_html(text)
+        title = File.basename(file, ".txt")
+        html = ERB.new(File.read(File.join(__dir__, "../", "html", "layout.html.erb"))).result_with_hash({ body: body, title: title })
         Dir.mkdir("dist") unless Dir.exist?("dist")
-        File.open(File.join("dist", "#{File.basename(file, ".txt")}.html"), "w+") do |f|
-          f.write(html)
-        end
+        File.write(File.join("dist", "#{title}.html"), html)
       end
       server = WEBrick::HTTPServer.new :Port => 8000, :DocumentRoot => "dist"
       trap 'INT' do server.shutdown end

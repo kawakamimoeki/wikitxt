@@ -45,7 +45,7 @@ module Wikitxt
 
   class LinkNode < BaseNode
     def to_html
-      "<a href=\"/#{attrs[:page]}.html\">#{attrs[:page]}</a>"
+      " <a href=\"/#{attrs[:page]}.html\">#{attrs[:page]}</a>"
     end
   end
 end
