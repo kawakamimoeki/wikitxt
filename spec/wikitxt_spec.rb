@@ -17,7 +17,7 @@ foo
       <div class="text"><span>foo</span></div>
       </div>
       <div class="line">
-      <div class="text"><a href="/bar.html">bar</a></div>
+      <div class="text"> <a href="/bar.html">bar</a> </div>
       </div>
       <div class="line">
       <div class="dot" style="margin-left: 0px;"></div>

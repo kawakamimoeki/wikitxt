@@ -41,7 +41,7 @@ foo #bar baz
     TXT
     html = <<~HTML
       <div class="line">
-      <div class="text"><span>foo</span><a href="/bar.html">bar</a><span>baz</span></div>
+      <div class="text"><span>foo</span> <a href="/bar.html">bar</a> <span>baz</span></div>
       </div>
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
