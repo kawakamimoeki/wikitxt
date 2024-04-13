@@ -82,4 +82,16 @@ External Image: #<https://example.com/image.png Image>
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
   end
+
+  it "excapes html tags" do
+    text = <<-TXT
+This is <pre> pre </pre> tag.
+    TXT
+    html = <<~HTML
+      <div class="line">
+      <div class="text"><span>This is &lt;pre&gt; pre &lt;/pre&gt; tag.</span></div>
+      </div>
+    HTML
+    expect(Wikitxt::Renderer.new(text).render).to eq(html)
+  end
 end
