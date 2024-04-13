@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Moeki Kawakami"]
   spec.email = ["moeki.kawakami@icloud.com"]
 
-  spec.summary = "Most lightweight wiki written by plain text."
-  spec.description = "Most lightweight wiki written by plain text."
+  spec.summary = "Most lightweight markup language and personal knowledge manager or wiki platform."
+  spec.description = "Most lightweight markup language and personal knowledge manager or wiki platform."
   spec.homepage = "https://github.com/kawakamimoeki/wikitxt"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"

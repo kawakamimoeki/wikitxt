@@ -4,7 +4,7 @@
 ![dt](https://badgen.net/rubygems/dt/wikitxt)
 ![license](https://badgen.net/github/license/kawakamimoeki/wikitxt)
 
-Most lightweight wiki written by plain text.
+Most lightweight markup language and personal knowledge manager or wiki platform.
 
 ![screenshot](https://github.com/kawakamimoeki/wikitxt/blob/main/docs/screenshot.png)
 
