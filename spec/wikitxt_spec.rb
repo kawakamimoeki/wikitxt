@@ -20,11 +20,11 @@ foo
       <div class="text"> <a href="/bar.html">bar</a> </div>
       </div>
       <div class="line">
-      <div class="dot" style="margin-left: 0px;"></div>
+      <div style="margin-left: 0px;"></div>
       <div class="list"><span>forge</span></div>
       </div>
       <div class="line">
-      <div class="dot" style="margin-left: 10px;"></div>
+      <div style="margin-left: 20px;"></div>
       <div class="list"><span>relaxation</span></div>
       </div>
     HTML

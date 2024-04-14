@@ -8,11 +8,11 @@ RSpec.describe Wikitxt::Renderer do
     TXT
     html = <<~HTML
       <div class="line">
-      <div class="dot" style="margin-left: 0px;"></div>
+      <div style="margin-left: 0px;"></div>
       <div class="list"><span>foo</span></div>
       </div>
       <div class="line">
-      <div class="dot" style="margin-left: 10px;"></div>
+      <div style="margin-left: 20px;"></div>
       <div class="list"><span>bar</span></div>
       </div>
     HTML

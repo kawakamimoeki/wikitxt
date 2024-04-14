@@ -30,7 +30,7 @@ module Wikitxt
     def to_html
       <<~HTML
         <div class="line">
-        <div class="dot" style="margin-left: #{attrs[:indent] * 5}px;"></div>
+        <div style="margin-left: #{attrs[:indent] * 10}px;"></div>
         <div class="list">#{Parser::Inline.new(self).to_html}</div>
         </div>
       HTML
