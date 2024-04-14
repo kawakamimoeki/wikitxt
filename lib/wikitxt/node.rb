@@ -45,7 +45,7 @@ module Wikitxt
 
   class LinkNode < BaseNode
     def to_html
-      " <a href=\"#{attrs[:url]}\">#{CGI.escapeHTML(attrs[:title])}</a> "
+      " <a href=\"#{attrs[:url]}\">#{!attrs[:title].empty? ? CGI.escapeHTML(attrs[:title]) : attrs[:url]}</a> "
     end
   end
 

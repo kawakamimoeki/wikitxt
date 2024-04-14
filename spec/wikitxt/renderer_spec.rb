@@ -71,6 +71,18 @@ External Link: #<https://example.com Example Domain>
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
   end
 
+  it "renders external link without title" do
+    text = <<-TXT
+External Link: #<https://example.com>
+    TXT
+    html = <<~HTML
+      <div class="line">
+      <div class="text"><span>External Link:</span> <a href="https://example.com">https://example.com</a> </div>
+      </div>
+    HTML
+    expect(Wikitxt::Renderer.new(text).render).to eq(html)
+  end
+
   it "renders external image" do
     text = <<-TXT
 External Image: #<https://example.com/image.png Image>
