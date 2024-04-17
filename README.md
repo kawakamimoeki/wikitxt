@@ -71,13 +71,13 @@ Internal Images:
 External Links:
 
 ```
-#<https://example.com Example Domain>
+https://example.com
 ```
 
 External Images:
 
 ```
-#<https://example.com/image.png Example Image>
+https://example.com/image.png
 ```
 
 Pre Blocks:

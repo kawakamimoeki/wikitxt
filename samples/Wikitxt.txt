@@ -15,7 +15,7 @@ In summary, it's like this:
     Text decoration is limited to links.
     Words you want to emphasize should be expressed as wiki pages.
 
-Absolute url is parsed as external link: #<https://example.com Example Domain>
+Absolute url is parsed as external link: https://example.com
 
 #woman.jpg
 

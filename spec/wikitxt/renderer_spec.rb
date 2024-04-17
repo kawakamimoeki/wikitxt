@@ -53,7 +53,7 @@ foo #bar baz
     TXT
     html = <<~HTML
       <div class="line">
-      <div class="text"><img src="/image.png" title="" /></div>
+      <div class="text"><img src="/image.png" /></div>
       </div>
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
@@ -61,23 +61,11 @@ foo #bar baz
 
   it "renders external link" do
     text = <<-TXT
-External Link: #<https://example.com Example Domain>
+External Link: https://example.com
     TXT
     html = <<~HTML
       <div class="line">
-      <div class="text"><span>External Link:</span> <a href="https://example.com">Example Domain</a> </div>
-      </div>
-    HTML
-    expect(Wikitxt::Renderer.new(text).render).to eq(html)
-  end
-
-  it "renders external link without title" do
-    text = <<-TXT
-External Link: #<https://example.com>
-    TXT
-    html = <<~HTML
-      <div class="line">
-      <div class="text"><span>External Link:</span> <a href="https://example.com">https://example.com</a> </div>
+      <div class="text"><span>External Link: </span> <a href="https://example.com">https://example.com</a> </div>
       </div>
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)
@@ -85,11 +73,11 @@ External Link: #<https://example.com>
 
   it "renders external image" do
     text = <<-TXT
-External Image: #<https://example.com/image.png Image>
+External Image: https://example.com/image.png
     TXT
     html = <<~HTML
       <div class="line">
-      <div class="text"><span>External Image:</span><img src="https://example.com/image.png" title="Image" /></div>
+      <div class="text"><span>External Image: </span><img src="https://example.com/image.png" /></div>
       </div>
     HTML
     expect(Wikitxt::Renderer.new(text).render).to eq(html)

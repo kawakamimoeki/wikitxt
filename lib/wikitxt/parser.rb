@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 module Wikitxt
   class Parser
     class Block
@@ -51,15 +53,14 @@ module Wikitxt
         scanner = StringScanner.new(parent.attrs[:text])
 
         until scanner.eos? do
-          if result = scanner.scan(/ ?#<.+>/)
+          if result = scanner.scan(URI.regexp(["http", "https"]))
             parent.children << pending if pending
             pending = nil
-            match = result.match(/#<(?<title>.*) *(?<url>https?:\/\/.+\.\S+) *(?<title>.*)>/)
-            if match[:url].match(/\.(png|jpg|jpeg|svg)/)
-              parent.children << ImageNode.new(url: match[:url], title: match[:title])
+            if result.match(/\.(png|jpg|jpeg|svg)/)
+              parent.children << ImageNode.new(url: result)
               next
             end
-            parent.children << LinkNode.new(url: match[:url], title: match[:title])
+            parent.children << LinkNode.new(url: result)
             next
           end
 

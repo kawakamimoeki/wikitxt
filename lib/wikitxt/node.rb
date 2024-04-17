@@ -45,13 +45,13 @@ module Wikitxt
 
   class LinkNode < BaseNode
     def to_html
-      " <a href=\"#{attrs[:url]}\">#{!attrs[:title].empty? ? CGI.escapeHTML(attrs[:title]) : attrs[:url]}</a> "
+      " <a href=\"#{attrs[:url]}\">#{attrs[:title] ? CGI.escapeHTML(attrs[:title]) : attrs[:url]}</a> "
     end
   end
 
   class ImageNode < BaseNode
     def to_html
-      "<img src=\"#{attrs[:url]}\" title=\"#{attrs[:title]}\" />"
+      "<img src=\"#{attrs[:url]}\" />"
     end
   end
 
